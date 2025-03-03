@@ -2,13 +2,13 @@
   <img src="https://i.imgur.com/xACLX93.png" alt="Minebot Logo"/>
 </div>
 
-## 🤖 Minebot - The Ultimate Discord-Minecraft Bot
+## 🤖 Minebot - All-In-In Discord-Minecraft Bot
 
 Minebot is the all-in-one Discord bot that seamlessly integrates with your Minecraft server. It combines multiple functionalities that would otherwise require several different plugins and bots, providing a streamlined experience for server owners, staff, and players.
 
 > **Note:** This GitHub repository is for technical support only. For feature requests, bug reports, and other support issues, please use the Issues tab.
 
-## ✨ Key Features
+## ✨ Features
 
 ### Account Linking System
 - Connect Discord & Minecraft accounts with a simple command
@@ -42,13 +42,10 @@ Minebot is the all-in-one Discord bot that seamlessly integrates with your Minec
 - Enable only the features you need
 - Extensive permission controls
 
-## 💻 Installation & Setup
+## 💻 Installation
 
-Minebot is available on BuiltByBit.org:
-
-👉 [Get Minebot on BuiltByBit](https://builtbybit.com/resources/53815)
-
-After purchase, you'll receive detailed installation instructions and access to all updates.
+1. [Get Minebot on BuiltByBit](https://builtbybit.com/resources/53815)
+2. [Read docs.mineacademy.org](https://docs.mineacademy.org/minebot) for a quickstart guide
 
 ## 🔧 Technical Support
 
