@@ -51,7 +51,7 @@ Minebot is the all-in-one Discord bot that seamlessly integrates with your Minec
 
 This GitHub repository is intended for technical support only. If you encounter issues:
 
-1. Check the [Issues](https://github.com/yourusername/minebot/issues) tab to see if your problem has already been reported
+1. Check the [Issues](https://github.com/kangarko/minebot/issues) tab to see if your problem has already been reported
 2. If not, create a new issue with detailed information about your problem
 
 ## 🌐 Community Support
