@@ -10,18 +10,18 @@ Minebot is the all-in-one Discord bot that seamlessly integrates with your Minec
 
 ## ✨ Features
 
-### Account Linking System
+### Account Linking
 - Connect Discord & Minecraft accounts with a simple command
 - Configure custom rewards for linked accounts (Discord roles, in-game items, or both)
 - Extensive logging and management options
 
-### Advanced Moderation
+### Moderation
 - Cross-platform ban synchronization between Discord and Minecraft
 - Voice channel moderation (kick, move)
 - Text channel management (lock, unlock, slowmode)
 - Timeout system with auto-expiration
 
-### Comprehensive Ticket System
+### Ticket System
 - Multiple creation methods (buttons, reactions, dropdowns)
 - Customizable categories with unique emojis
 - Thread or category-based management
@@ -35,7 +35,6 @@ Minebot is the all-in-one Discord bot that seamlessly integrates with your Minec
 
 ### Flexible Storage Options
 - Support for MongoDB, MySQL, and SQLite
-- Choose the database solution that fits your needs
 
 ### Fully Customizable
 - Configure every aspect through a single settings file
