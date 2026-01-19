@@ -1,0 +1,244 @@
+{
+    "secret": {
+        "token": "",
+        "default_guild": null
+    },
+    "database": {
+        "url": ""
+    },
+    "bot": {
+        "status": "",
+        "activity": {
+            "name": "",
+            "state": "",
+            "url": "",
+            "type": ""
+        }
+    },
+    "server": {
+        "websocket": {
+            "host": "",
+            "port": null,
+            "auth": {
+                "allowed_ip": "",
+                "password": ""
+            }
+        }
+    },
+    "events": {
+        "guild_boost": {
+            "log": null,
+            "reward": {
+                "mode": "",
+                "role": [],
+                "item": {
+                    "test1": [],
+                    "default": []
+                }
+            }
+        }
+    },
+    "commands": {
+        "link_account": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "reward": {
+                "mode": "",
+                "role": [],
+                "item": {
+                    "test1": [],
+                    "default": []
+                }
+            }
+        },
+        "withdraw_rewards": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null
+        },
+        "kick": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "synchronization": {
+                "minecraft_to_discord": null,
+                "discord_to_minecraft": null
+            }
+        },
+        "ban": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "synchronization": {
+                "minecraft_to_discord": null,
+                "discord_to_minecraft": null
+            }
+        },
+        "unban": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "synchronization": {
+                "minecraft_to_discord": null,
+                "discord_to_minecraft": null
+            }
+        },
+        "timeout": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "synchronization": {
+                "minecraft_to_discord": null,
+                "discord_to_minecraft": null
+            }
+        },
+        "untimeout": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null,
+            "synchronization": {
+                "minecraft_to_discord": null,
+                "discord_to_minecraft": null
+            }
+        },
+        "clear": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null
+        },
+        "lock": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null
+        },
+        "unlock": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null
+        },
+        "slowmode": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "log": null
+        },
+        "suggest": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            },
+            "pending_channel": null,
+            "result_channel": null,
+            "reward": {
+                "mode": "",
+                "role": [],
+                "item": {
+                    "test1": [],
+                    "default": []
+                }
+            }
+        },
+        "wiki": {
+            "permissions": [],
+            "cooldown": {
+                "algorithm": "",
+                "bucket": "",
+                "window_length": null,
+                "allowed_invocations": null
+            }
+        }
+    },
+    "systems": {
+        "ticket": {
+            "categories": {
+                "general": {
+                    "category_emoji": "",
+                    "category_name": "",
+                    "category_description": "",
+                    "channel_format": "",
+                    "channel_id": null,
+                    "staff_role": null
+                },
+                "report": {
+                    "category_emoji": "",
+                    "category_name": "",
+                    "category_description": "",
+                    "channel_format": "",
+                    "channel_id": null,
+                    "staff_role": null
+                }
+            },
+            "creation": {
+                "channel_id": null,
+                "max_tickets_per_user": null
+            },
+            "transcript": {
+                "file_name": "",
+                "upload": {
+                    "token": "",
+                    "repository": "",
+                    "branch": ""
+                }
+            },
+            "log": null
+        }
+    }
+}

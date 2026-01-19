@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project Information -->
+    <groupId>org.mineacademy</groupId>
+    <artifactId>minebridge-parent</artifactId>
+    <version>1.1.1</version>
+    <packaging>pom</packaging>
+
+    <!-- Sub-modules -->
+    <modules>
+        <module>minebridge-core</module>
+        <module>minebridge-proxy-core</module>
+        <module>minebridge-velocity</module>
+        <module>minebridge-bungeecord</module>
+        <module>minebridge-bukkit</module>
+    </modules>
+
+    <!-- Global Properties -->
+    <properties>
+        <author>kangarko</author>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        
+        <!-- Version Properties -->
+        <foundation.version>LATEST</foundation.version>
+        <lombok.version>1.18.42</lombok.version>
+        <websocket.version>1.6.0</websocket.version>
+        <gson.version>2.13.2</gson.version>
+        <slf4j.version>2.0.17</slf4j.version>
+        <adventure.version>4.26.1</adventure.version>
+        <maven-jar.version>3.4.2</maven-jar.version>
+        <maven-compiler.version>3.14.1</maven-compiler.version>
+        <maven-shade.version>3.6.0</maven-shade.version>
+    </properties>
+
+    <!-- Repositories -->
+    <repositories>
+        <repository>
+            <id>jitpack</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>velocitypowered</id>
+            <url>https://nexus.velocitypowered.com/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <!-- Dependency Management -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Internal Modules -->
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>minebridge-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>minebridge-proxy-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+            <!-- Foundation -->
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>foundation-core</artifactId>
+                <version>${foundation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>foundation-bukkit</artifactId>
+                <version>${foundation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>foundation-bungee</artifactId>
+                <version>${foundation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mineacademy</groupId>
+                <artifactId>foundation-velocity</artifactId>
+                <version>${foundation.version}</version>
+            </dependency>
+            
+            <!-- Common Tools -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.java-websocket</groupId>
+                <artifactId>Java-WebSocket</artifactId>
+                <version>${websocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            
+            <!-- Logging -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            
+            <!-- Adventure API -->
+            <dependency>
+                <groupId>net.kyori</groupId>
+                <artifactId>adventure-api</artifactId>
+                <version>${adventure.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.kyori</groupId>
+                <artifactId>adventure-text-serializer-plain</artifactId>
+                <version>${adventure.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            
+            <!-- Platform APIs -->
+            <dependency>
+                <groupId>com.velocitypowered</groupId>
+                <artifactId>velocity-api</artifactId>
+                <version>3.4.0-SNAPSHOT</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.md-5</groupId>
+                <artifactId>bungeecord-api</artifactId>
+                <version>1.21-R0.4</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <!-- Build Management -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <compilerArgs>
+                            <arg>-Xlint:-options</arg>
+                        </compilerArgs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${maven-shade.version}</version>
+                    <configuration>
+                        <createDependencyReducedPom>false</createDependencyReducedPom>
+                        <!-- Default filters to exclude unwanted files -->
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/MANIFEST.MF</exclude>
+                                    <exclude>META-INF/LICENSE</exclude>
+                                    <exclude>META-INF/*.SF</exclude>
+                                    <exclude>META-INF/*.DSA</exclude>
+                                    <exclude>META-INF/*.RSA</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

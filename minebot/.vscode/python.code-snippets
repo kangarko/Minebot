@@ -1,0 +1,35 @@
+{
+    "Create Command": {
+      "prefix": "newcommand",
+      "body": [
+        "import hikari",
+        "import lightbulb",
+        "",
+        "from helper import CommandHelper",
+        "from model import CommandsKeys",
+        "",
+        "helper: CommandHelper = CommandHelper(CommandsKeys.${1:COMMAND_KEY})",
+        "loader: lightbulb.Loader = helper.get_loader()",
+        "",
+        "",
+        "@loader.command",
+        "class ${2:CommandName}(",
+        "    lightbulb.SlashCommand,",
+        "    name=\"extensions.${3:command_name}.label\",",
+        "    description=\"extensions.${3:command_name}.description\",",
+        "    default_member_permissions=helper.get_permissions(),",
+        "    hooks=helper.generate_hooks(),",
+        "    contexts=[hikari.ApplicationContextType.GUILD], # delete this line if not guild only",
+        "    localize=True,",
+        "):",
+        "    # ${4:Command arguments}",
+        "",
+        "    @lightbulb.invoke",
+        "    async def invoke(self, ctx: lightbulb.Context) -> None:",
+        "        \"\"\"Handle command invocation\"\"\"",
+        "        ${0:# Command implementation}",
+        "        await ctx.respond(\"${5:Response message}\")",
+      ],
+      "description": "Create a new command using hikari and lightbulb"
+    }
+  }

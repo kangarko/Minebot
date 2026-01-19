@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Maven Clean Install",
+      "type": "shell",
+      "command": "VERSION=1.1.1 && SERVER_DIR=\"/home/egehan/Test Server\" && mvn clean install && for MODULE in bukkit bungeecord velocity; do if [ \"$MODULE\" = \"bungeecord\" ]; then MODULE_PROPER=\"BungeeCord\"; else MODULE_PROPER=\"$(echo ${MODULE} | sed 's/^\\(.*\\)$/\\u\\1/')\"; fi; JAR_PATH=\"minebridge-${MODULE}/target/MineBridge-${MODULE_PROPER}-${VERSION}.jar\"; if [ -f \"$JAR_PATH\" ]; then case \"$MODULE\" in bukkit) TARGET=\"${SERVER_DIR}/1.8/plugins/\";; bungeecord) TARGET=\"${SERVER_DIR}/BungeeCord/plugins/\";; velocity) TARGET=\"${SERVER_DIR}/Velocity/plugins/\";; esac; cp -f \"$JAR_PATH\" \"$TARGET\" && echo \"✓ ${MODULE_PROPER} plugin copied successfully\"; fi; done",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Minecraft Server Start",
+      "type": "shell",
+      "command": "cd \"/home/egehan/Test Server/1.8/\" && sh start.sh",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

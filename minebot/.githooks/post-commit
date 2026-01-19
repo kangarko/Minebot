@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Path to configuration file and its backup
+CONFIG_FILE="configuration/settings.json"
+BACKUP_FILE="configuration/.settings.backup.json"
+
+echo "Post-commit hook: Attempting to restore configuration from backup"
+
+# Check if backup file exists
+if [ -f "$BACKUP_FILE" ]; then
+    # Restore the backup file
+    if mv "$BACKUP_FILE" "$CONFIG_FILE"; then
+        echo "✅ Successfully restored $CONFIG_FILE from backup"
+    else
+        echo "❌ Failed to restore configuration from backup" >&2
+        exit 1
+    fi
+else
+    echo "ℹ️ No backup file found at $BACKUP_FILE - no restoration needed"
+fi
+
+# Return success
+exit 0

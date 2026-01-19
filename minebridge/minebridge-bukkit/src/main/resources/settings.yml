@@ -1,0 +1,66 @@
+# -------------------------------------------------------------------------------------------------
+# WebSocket configuration for the communication between plugin components.
+#
+# host: The host address to bind the WebSocket server to.
+# port: The port number on which the WebSocket server will listen for connections.
+# password: The password required to authenticate WebSocket connections.
+# -------------------------------------------------------------------------------------------------
+websocket:
+  host: ""
+  port: null
+  password: ""
+
+# -------------------------------------------------------------------------------------------------
+# Aliases configuration for commands provided by the plugin.
+#
+# This section defines alternative command names that players can use to execute the same function.
+# Each base command can have multiple alternative names (aliases) associated with it.
+# Players can use any of the defined aliases to execute the corresponding command functionality.
+# -------------------------------------------------------------------------------------------------
+aliases:
+  kick:
+    - "kick"
+    - "ekick"
+  ban:
+    - "ban"
+    - "eban"
+  tempban:
+    - "tempban"
+    - "etempban"
+  unban:
+    - "unban"
+    - "pardon"
+    - "eunban"
+    - "epardon"
+  timeout:
+    - "mute"
+  untimeout:
+    - "emute"
+
+# -------------------------------------------------------------------------------------------------
+# Syntax configuration for commands provided by the plugin.
+#
+# This section defines the command structure and expected parameters for each command.
+# Parameter notation:
+# - {alias}: Will be replaced with any of the valid aliases for the command
+# - <parameter>: Required parameter (indicated by angle brackets)
+# - [parameter]: Optional parameter (indicated by square brackets)
+# -------------------------------------------------------------------------------------------------
+syntax:
+  kick: "{alias} <target> [reason]"
+  ban: "{alias} <target> [reason]"
+  tempban: "{alias} <target> <duration> [reason]"
+  unban: "{alias} <target>"
+  timeout: "{alias} <target> <duration> [reason]"
+  untimeout: "{alias} <target>"
+
+# -------------------------------------------------------------------------------------------------
+# A list of parts of the plugin that will print log messages. Useful to see what the plugin does
+# and solve issues.
+#
+# Do not fear enabling this otherwise you will miss out and then waste time reading our Wiki and
+# opening tickets where things could easily be explained simply by reading the console.
+#
+# Available: websocket
+# -------------------------------------------------------------------------------------------------
+debug: []

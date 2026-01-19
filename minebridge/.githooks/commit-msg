@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Commit message file
+MSG_FILE=$1
+
+# Valid prefixes
+REGEX="^(feat|fix|refactor|chore|docs|test|style): "
+
+# If there is no match, commit is blocked
+if ! grep -qE "$REGEX" "$MSG_FILE"; then
+    echo "❌ Commit message must start with one of these prefixes: feat:, fix:, refactor:, chore:, docs:, test:, style:"
+    echo "ℹ️  Example: 'feat: added user login'"
+    exit 1
+fi

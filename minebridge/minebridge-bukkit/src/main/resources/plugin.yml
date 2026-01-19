@@ -1,0 +1,32 @@
+name: ${project.name}
+version: ${project.version}
+main: ${main.class}
+author: ${author}
+api-version: 1.13
+softdepend:
+  [
+    AuthMe,
+    BanManager,
+    CMI,
+    DiscordSRV,
+    Factions,
+    Feudal,
+    ItemsAdder,
+    Essentials,
+    LegacyFactions,
+    Lands,
+    LuckPerms,
+    Multiverse-Core,
+    MVdWPlaceholderAPI,
+    MythicMobs,
+    mcMMO,
+    Nicky,
+    PlaceholderAPI,
+    ProtocolLib,
+    SimpleClans,
+    Towny,
+    TownyChat,
+    Vault,
+    WorldEdit,
+  ]
+commands:

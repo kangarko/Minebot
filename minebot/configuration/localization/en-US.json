@@ -1,0 +1,1200 @@
+{
+  "events": {
+    "guild_boost": {
+      "messages": {
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Server Boosted",
+              "description": "{discord_user_mention} has boosted the server.",
+              "color": "GREEN"
+            }
+          }
+        }
+      }
+    }
+  },
+  "commands": {
+    "link_account": {
+      "command": {
+        "label": "link_account",
+        "description": "Link your Minecraft account to your Discord account.",
+        "options": {
+          "username": {
+            "label": "username",
+            "description": "The Minecraft username to link."
+          }
+        }
+      },
+      "messages": {
+        "minecraft": {
+          "confirmation_code": {
+            "text": "Your confirmation code is <white><bold><hover:show_text:'Click to copy the code'><click:suggest_command:'{confirmation_code}'>{confirmation_code}</click></hover></bold></white>. Please enter this code in Discord to complete the linking process."
+          },
+          "success": {
+            "text": "Your Minecraft account has been successfully linked to your Discord account."
+          },
+          "failure": {
+            "text": "Failed to link your Minecraft account. Please try again later."
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Account Successfully Linked",
+              "description": "Your Minecraft account has been successfully linked to your Discord account.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Account Linking Failed",
+              "description": "Failed to link your Minecraft account. Please try again later.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Account Linked",
+              "description": "{discord_user_mention} has linked their Minecraft account.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Minecraft Username",
+                  "value": "{minecraft_username}"
+                },
+                {
+                  "name": "Minecraft UUID",
+                  "value": "{minecraft_uuid}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Account Linking Failed",
+              "description": "{discord_user_mention} failed to link their Minecraft account.",
+              "color": "RED"
+            }
+          }
+        }
+      },
+      "modal": {
+        "confirmation": {
+          "title": "Account Linking Confirmation",
+          "fields": {
+            "code": {
+              "style": "SHORT",
+              "label": "Confirmation Code",
+              "placeholder": "Enter the confirmation code sent to your Minecraft account."
+            }
+          }
+        }
+      }
+    },
+    "withdraw_rewards": {
+      "command": {
+        "label": "withdraw_rewards",
+        "description": "Withdraw your rewards."
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Rewards Withdrawn",
+              "description": "Your rewards have been successfully withdrawn.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Withdrawal Failed",
+              "description": "Failed to withdraw your rewards. Please try again later.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Rewards Withdrawn",
+              "description": "{discord_user_mention} has withdrawn their rewards.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Withdrawal Failed",
+              "description": "{discord_user_mention} failed to withdraw their rewards.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    },
+    "kick": {
+      "command": {
+        "label": "kick",
+        "description": "Kick a user from the server.",
+        "options": {
+          "user": {
+            "label": "user",
+            "description": "The user to kick."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for the kick."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Kick Successful",
+              "description": "You have kicked {discord_user_mention} from the server.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "User Kicked",
+              "description": "{discord_user_mention} has been kicked from the server.",
+              "color": "RED",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ban": {
+      "command": {
+        "label": "ban",
+        "description": "Ban a user from the server.",
+        "options": {
+          "user": {
+            "label": "user",
+            "description": "The user to ban."
+          },
+          "duration": {
+            "label": "duration",
+            "description": "The duration of the ban."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for the ban."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ban Successful",
+              "description": "You have banned {discord_user_mention} from the server.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "User Banned",
+              "description": "{discord_user_mention} has been banned from the server.",
+              "color": "RED",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Duration",
+                  "value": "{duration}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "unban": {
+      "command": {
+        "label": "unban",
+        "description": "Unban a user from the server.",
+        "options": {
+          "user": {
+            "label": "user",
+            "description": "The user to unban."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for the unban."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Unban Successful",
+              "description": "You have unbanned {discord_user_mention} from the server.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "User Unbanned",
+              "description": "{discord_user_mention} has been unbanned from the server.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "timeout": {
+      "command": {
+        "label": "timeout",
+        "description": "Timeout a user in the server.",
+        "options": {
+          "user": {
+            "label": "user",
+            "description": "The user to timeout."
+          },
+          "duration": {
+            "label": "duration",
+            "description": "The duration of the timeout."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for the timeout."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Timeout Successful",
+              "description": "You have timed out {discord_user_mention} in the server.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "User Timed Out",
+              "description": "{discord_user_mention} has been timed out in the server.",
+              "color": "YELLOW",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Duration",
+                  "value": "{duration}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "untimeout": {
+      "command": {
+        "label": "untimeout",
+        "description": "Remove timeout from a user in the server.",
+        "options": {
+          "user": {
+            "label": "user",
+            "description": "The user to remove timeout from."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for removing the timeout."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Timeout Removed",
+              "description": "You removed the timeout from {discord_user_mention} in the server.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "User Timeout Removed",
+              "description": "{discord_user_mention}'s timeout has been removed in the server.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "clear": {
+      "command": {
+        "label": "clear",
+        "description": "Clear messages in a channel.",
+        "options": {
+          "amount": {
+            "label": "amount",
+            "description": "The number of messages to clear."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for clearing the messages."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Messages Cleared",
+              "description": "{amount} messages have been cleared in this channel.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Messages Cleared",
+              "description": "{discord_staff_user_mention} has cleared messages in {channel_mention}",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Amount",
+                  "value": "{amount}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "lock": {
+      "command": {
+        "label": "lock",
+        "description": "Lock a channel to prevent further messages.",
+        "options": {
+          "channel": {
+            "label": "channel",
+            "description": "The channel to lock."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for locking the channel."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Channel Locked",
+              "description": "{channel_mention} has been locked.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Channel Locked",
+              "description": "{discord_staff_user_mention} has locked {channel_mention}.",
+              "color": "YELLOW",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "unlock": {
+      "command": {
+        "label": "unlock",
+        "description": "Unlock a channel to allow further messages.",
+        "options": {
+          "channel": {
+            "label": "channel",
+            "description": "The channel to unlock."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for unlocking the channel."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Channel Unlocked",
+              "description": "{channel_mention} has been unlocked.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Channel Unlocked",
+              "description": "{discord_staff_user_mention} has unlocked {channel_mention}.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "slowmode": {
+      "command": {
+        "label": "slowmode",
+        "description": "Set slowmode for a channel.",
+        "options": {
+          "channel": {
+            "label": "channel",
+            "description": "The channel to set slowmode for."
+          },
+          "duration": {
+            "label": "duration",
+            "description": "The duration of the slowmode."
+          },
+          "reason": {
+            "label": "reason",
+            "description": "The reason for setting slowmode."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Slowmode Set",
+              "description": "Slowmode has been set to {duration} in {channel_mention}.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Slowmode Set",
+              "description": "{discord_staff_user_mention} has set slowmode in {channel_mention}.",
+              "color": "YELLOW",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Duration",
+                  "value": "{duration}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "suggest": {
+      "command": {
+        "label": "suggest",
+        "description": "Suggest a feature."
+      },
+      "messages": {
+        "minecraft": {
+          "approve": {
+            "text": "Your suggestion has been approved by {discord_staff_username}."
+          },
+          "reject": {
+            "text": "Your suggestion has been rejected by {discord_staff_username}."
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Submitted",
+              "description": "Your suggestion has been submitted successfully.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Submission Failed",
+              "description": "Failed to submit your suggestion. Please try again later.",
+              "color": "RED"
+            }
+          }
+        },
+        "pending": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Submitted",
+              "description": "{discord_user_mention} has submitted a suggestion.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Suggestion",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Submission Failed",
+              "description": "{discord_user_mention} failed to submit a suggestion.",
+              "color": "RED"
+            }
+          }
+        },
+        "result": {
+          "approve": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Approved",
+              "description": "{discord_user_mention}'s suggestion has been approved.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Suggestion",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          },
+          "reject": {
+            "message_type": "embed",
+            "content": {
+              "title": "Suggestion Rejected",
+              "description": "{discord_user_mention}'s suggestion has been rejected.",
+              "color": "RED",
+              "fields": [
+                {
+                  "name": "Moderator",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Reason",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Suggestion",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "menu": {
+        "confirmation": {
+          "approve": {
+            "label": "Approve",
+            "emoji": "✅",
+            "style": "SUCCESS"
+          },
+          "reject": {
+            "label": "Reject",
+            "emoji": "❌",
+            "style": "DANGER"
+          }
+        }
+      },
+      "modal": {
+        "send": {
+          "title": "Give a Suggestion",
+          "fields": {
+            "suggestion": {
+              "style": "PARAGRAPH",
+              "label": "Suggestion",
+              "placeholder": "Enter your suggestion here."
+            }
+          }
+        },
+        "respond": {
+          "title": "Respond to Suggestion",
+          "fields": {
+            "response": {
+              "style": "PARAGRAPH",
+              "label": "Response",
+              "placeholder": "Enter your response here."
+            }
+          }
+        }
+      }
+    },
+    "wiki": {
+      "command": {
+        "label": "wiki",
+        "description": "Get information from the wiki.",
+        "options": {
+          "query": {
+            "label": "query",
+            "description": "The query to search for."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "{query} - Wiki Search Result",
+              "description": "{result}",
+              "color": "BLUE"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Wiki Search Failed",
+              "description": "Failed to retrieve the wiki information. Please try again later.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    }
+  },
+  "systems": {
+    "ticket": {
+      "messages": {
+        "system": {
+          "startup": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ticket System",
+              "description": "The ticket system is now online. You can create a ticket by selecting category under that message.",
+              "color": "GREEN"
+            }
+          },
+          "creation": {
+            "general": {
+              "message_type": "embed",
+              "content": {
+                "title": "New Ticket Created",
+                "description": "A new ticket has been created by {ticket_owner_discord_user_mention}.",
+                "color": "BLUE",
+                "fields": [
+                  {
+                    "name": "Content",
+                    "value": "{ticket_general_content}"
+                  }
+                ]
+              }
+            },
+            "report": {
+              "message_type": "embed",
+              "content": {
+                "title": "New Report Ticket Created",
+                "description": "{ticket_owner_discord_user_mention} has created a report ticket.",
+                "color": "RED",
+                "fields": [
+                  {
+                    "name": "Reported User",
+                    "value": "{ticket_report_username}"
+                  },
+                  {
+                    "name": "Report Content",
+                    "value": "{ticket_report_content}"
+                  }
+                ]
+              }
+            }
+          },
+          "closing": {
+            "message_type": "embed",
+            "content": {
+              "title": "Are you sure you want to close this ticket?",
+              "description": "Please confirm that you want to close this ticket. This action cannot be undone.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ticket Created",
+              "description": "Your ticket has been created successfully. Please check your DMs for further instructions.",
+              "color": "BLUE"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ticket Creation Failed",
+              "description": "Failed to create a ticket. Please try again later.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "transcript": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ticket Transcript",
+              "description": "{ticket_owner_discord_user_mention}'s ticket transcript.",
+              "color": "BLUE",
+              "fields": [
+                {
+                  "name": "Ticket Owner",
+                  "value": "{ticket_owner_discord_user_mention}"
+                },
+                {
+                  "name": "Ticket Category",
+                  "value": "{ticket_category}"
+                },
+                {
+                  "name": "Ticket ID",
+                  "value": "{ticket_channel_id}"
+                },
+                {
+                  "name": "Transcript",
+                  "value": "[Click here to see the transcript]({ticket_transcript_url})"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "menu": {
+        "inner": {
+          "close": {
+            "emoji": "🔒",
+            "label": "Close Ticket",
+            "style": "DANGER"
+          }
+        },
+        "outer": {
+          "confirm": {
+            "emoji": "✅",
+            "label": "Confirm",
+            "style": "SUCCESS"
+          },
+          "cancel": {
+            "emoji": "❌",
+            "label": "Cancel",
+            "style": "SECONDARY"
+          }
+        }
+      },
+      "modal": {
+        "general": {
+          "title": "General Ticket",
+          "fields": {
+            "content": {
+              "style": "PARAGRAPH",
+              "label": "Content",
+              "placeholder": "Enter the content of your ticket here."
+            }
+          }
+        },
+        "report": {
+          "title": "Report Ticket",
+          "fields": {
+            "username": {
+              "style": "SHORT",
+              "label": "Username",
+              "placeholder": "Enter the username of the user you want to report."
+            },
+            "content": {
+              "style": "PARAGRAPH",
+              "label": "Report Content",
+              "placeholder": "Enter the content of your report here."
+            }
+          }
+        }
+      }
+    }
+  },
+  "general": {
+    "success": {
+      "message_type": "embed",
+      "content": {
+        "title": "Success",
+        "description": "The operation was successful.",
+        "color": "GREEN"
+      }
+    },
+    "failure": {
+      "message_type": "embed",
+      "content": {
+        "title": "Failure",
+        "description": "The operation failed. Please try again later.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Error",
+            "value": "{error_message}"
+          }
+        ]
+      }
+    },
+    "no_reason": {
+      "text": "No reason provided."
+    }
+  },
+  "error": {
+    "unknown_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Unknown Error",
+        "description": "An unknown error occurred. Please report this to the developers.",
+        "color": "RED"
+      }
+    },
+    "timeout_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Timeout Error",
+        "description": "The request timed out. Please try again later.",
+        "color": "RED"
+      }
+    },
+    "command_on_cooldown": {
+      "message_type": "embed",
+      "content": {
+        "title": "Command On Cooldown",
+        "description": "This command is currently on cooldown. Please wait before trying again.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Remaining Cooldown",
+            "value": "{remaining_cooldown}"
+          }
+        ]
+      }
+    },
+    "user_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "User Not Found",
+        "description": "The specified user was not found.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "User ID",
+            "value": "{discord_user_id}"
+          },
+          {
+            "name": "Username",
+            "value": "{discord_username}"
+          }
+        ]
+      }
+    },
+    "member_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Member Not Found",
+        "description": "The specified member was not found in the server.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "User ID",
+            "value": "{discord_user_id}"
+          },
+          {
+            "name": "Username",
+            "value": "{discord_username}"
+          }
+        ]
+      }
+    },
+    "channel_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Channel Not Found",
+        "description": "The specified channel was not found.",
+        "color": "RED"
+      }
+    },
+    "command_execution_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Command Execution Error",
+        "description": "An error occurred while executing the command.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Error",
+            "value": "{error_message}"
+          }
+        ]
+      }
+    },
+    "user_record_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "User Record Not Found",
+        "description": "The user record was not found.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Username",
+            "value": "{discord_username}"
+          },
+          {
+            "name": "User ID",
+            "value": "{discord_user_id}"
+          }
+        ]
+      }
+    },
+    "account_already_linked": {
+      "message_type": "embed",
+      "content": {
+        "title": "Account Already Linked",
+        "description": "The account has been already linked.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Player Name",
+            "value": "{minecraft_username}"
+          },
+          {
+            "name": "Player UUID",
+            "value": "{minecraft_uuid}"
+          }
+        ]
+      }
+    },
+    "account_not_linked": {
+      "message_type": "embed",
+      "content": {
+        "title": "Account Not Linked",
+        "description": "The account is not linked.",
+        "color": "RED"
+      }
+    },
+    "player_not_online": {
+      "message_type": "embed",
+      "content": {
+        "title": "Player Not Online",
+        "description": "The minecraft player is not online.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Player Name",
+            "value": "{minecraft_username}"
+          },
+          {
+            "name": "Player UUID",
+            "value": "{minecraft_uuid}"
+          }
+        ]
+      }
+    },
+    "can_not_moderate": {
+      "message_type": "embed",
+      "content": {
+        "title": "Cannot Moderate",
+        "description": "You do not have permission to moderate this user.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "User",
+            "value": "{discord_user_mention}"
+          },
+          {
+            "name": "Moderator",
+            "value": "{discord_staff_user_mention}"
+          }
+        ]
+      }
+    },
+    "user_already_timed_out": {
+      "message_type": "embed",
+      "content": {
+        "title": "User Already Timed Out",
+        "description": "{discord_user_mention} is already timed out.",
+        "color": "RED"
+      }
+    },
+    "user_not_timed_out": {
+      "message_type": "embed",
+      "content": {
+        "title": "User Not Timed Out",
+        "description": "{discord_user_mention} is not currently timed out.",
+        "color": "RED"
+      }
+    },
+    "duration_out_of_range": {
+      "message_type": "embed",
+      "content": {
+        "title": "Duration Out of Range",
+        "description": "The specified duration is out of range. Please provide a valid duration.",
+        "fields": [
+          {
+            "name": "Minimum Duration",
+            "value": "{min_duration}"
+          },
+          {
+            "name": "Maximum Duration",
+            "value": "{max_duration}"
+          }
+        ],
+        "color": "RED"
+      }
+    },
+    "max_amount_of_tickets_reached": {
+      "message_type": "embed",
+      "content": {
+        "title": "Max Amount of Tickets Reached",
+        "description": "You have reached the maximum number of tickets allowed which is {max_tickets}. Please close an existing ticket before creating a new one.",
+        "color": "RED"
+      }
+    }
+  },
+  "time_units": {
+    "year": {
+      "singular": ["year", "yr", "y"],
+      "plural": ["years", "yrs", "y"]
+    },
+    "month": {
+      "singular": ["month", "mo"],
+      "plural": ["months", "mos"]
+    },
+    "week": {
+      "singular": ["week", "wk", "w"],
+      "plural": ["weeks", "wks", "w"]
+    },
+    "day": {
+      "singular": ["day", "d"],
+      "plural": ["days", "d"]
+    },
+    "hour": {
+      "singular": ["hour", "hr", "h"],
+      "plural": ["hours", "hrs", "h"]
+    },
+    "minute": {
+      "singular": ["minute", "min", "m"],
+      "plural": ["minutes", "mins", "m"]
+    },
+    "second": {
+      "singular": ["second", "sec", "s"],
+      "plural": ["seconds", "secs", "s"]
+    }
+  }
+}

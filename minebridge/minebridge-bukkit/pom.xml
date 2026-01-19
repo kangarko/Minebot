@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Configuration -->
+    <parent>
+        <groupId>org.mineacademy</groupId>
+        <artifactId>minebridge-parent</artifactId>
+        <version>1.1.1</version>
+    </parent>
+
+    <artifactId>minebridge-bukkit</artifactId>
+    <name>MineBridge-Bukkit</name>
+    
+    <properties>
+        <main.class>org.mineacademy.minebridge.bukkit.MineBridgeBukkit</main.class>
+    </properties>
+
+    <dependencies>
+        <!-- MineBridge Core -->
+        <dependency>
+            <groupId>org.mineacademy</groupId>
+            <artifactId>minebridge-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- Foundation Bukkit -->
+        <dependency>
+            <groupId>org.mineacademy</groupId>
+            <artifactId>foundation-bukkit</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- SLF4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Java-WebSocket -->
+        <dependency>
+            <groupId>org.java-websocket</groupId>
+            <artifactId>Java-WebSocket</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.name}-${project.version}</finalName>
+        <plugins>
+            <!-- Jar Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            
+            <!-- Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            
+            <!-- Shade Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <!-- Module-specific includes -->
+                    <artifactSet>
+                        <includes>
+                            <include>org.mineacademy:foundation-bukkit*</include>
+                            <include>org.mineacademy:minebridge-core*</include>
+                            <include>org.slf4j:slf4j-api</include>
+                            <include>org.slf4j:slf4j-simple</include>
+                            <include>org.java-websocket:Java-WebSocket</include>
+                        </includes>
+                    </artifactSet>
+                    
+                    <!-- Transformers for Service Loading -->
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
+
+                    <!-- Module-specific relocations -->
+                    <relocations>
+                        <relocation>
+                            <pattern>org.mineacademy.fo</pattern>
+                            <shadedPattern>org.mineacademy.minebridge.lib.foundation</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.java_websocket</pattern>
+                            <shadedPattern>org.mineacademy.minebridge.lib.websocket</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.slf4j</pattern>
+                            <shadedPattern>org.mineacademy.minebridge.lib.slf4j</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,1216 @@
+{
+  "events": {
+    "guild_boost": {
+      "messages": {
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Sunucu Boost",
+              "description": "{discord_user_mention} kullanıcısı sunucuya boost yaptı.",
+              "color": "GREEN"
+            }
+          }
+        }
+      }
+    }
+  },
+  "commands": {
+    "link_account": {
+      "command": {
+        "label": "hesap_bagla",
+        "description": "Hesap bağlama işlemi.",
+        "options": {
+          "username": {
+            "label": "kullanıcı_adı",
+            "description": "Bağlanacak Minecraft kullanıcı adı."
+          }
+        }
+      },
+      "messages": {
+        "minecraft": {
+          "confirmation_code": {
+            "text": "Doğrulama kodunuz <white><bold><hover:show_text:'Kodu kopyalamak için tıklayın'><click:suggest_command:'{confirmation_code}'>{confirmation_code}</click></hover></bold></white>. Lütfen bağlantı işlemini tamamlamak için bu kodu Discord'a girin."
+          },
+          "success": {
+            "text": "Minecraft hesabınız başarıyla Discord hesabınıza bağlandı"
+          },
+          "failure": {
+            "text": "Minecraft hesabınızı bağlarken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Hesap Başarıyla Bağlandı",
+              "description": "Minecraft hesabınız başarıyla Discord hesabınıza bağlandı.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Hesap Bağlama Başarısız",
+              "description": "Minecraft hesabınızı bağlarken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Account Linked",
+              "description": "{discord_user_mention} kullanıcısı Minecraft hesabını bağladı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Minecraft Kullanıcı Adı",
+                  "value": "{minecraft_username}"
+                },
+                {
+                  "name": "Minecraft UUID",
+                  "value": "{minecraft_uuid}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Hesap Bağlama Başarısız",
+              "description": "{discord_user_mention} kullanıcısı Minecraft hesabını bağlarken hata oluştu.",
+              "color": "RED",
+              "fields": [
+                {
+                  "name": "Hata",
+                  "value": "{error_message}"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "modal": {
+        "confirmation": {
+          "title": "Hesap Bağlama Doğrulaması",
+          "fields": {
+            "code": {
+              "style": "SHORT",
+              "label": "Doğrulama Kodu",
+              "placeholder": "Minecraft hesabınıza gönderilen doğrulama kodunu girin."
+            }
+          }
+        }
+      }
+    },
+    "withdraw_rewards": {
+      "command": {
+        "label": "ödül_çek",
+        "description": "Ödüllerinizi çekin."
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ödül Çekme Başarılı",
+              "description": "Ödülleriniz başarıyla çekildi.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ödül Çekme Başarısız",
+              "description": "Ödüllerinizi çekerken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ödül Çekme Başarılı",
+              "description": "{discord_user_mention} kullanıcısı ödüllerini başarıyla çekti.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Ödül Çekme Başarısız",
+              "description": "{discord_user_mention} kullanıcısı ödüllerini çekerken hata oluştu.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    },
+    "kick": {
+      "command": {
+        "label": "at",
+        "description": "Sunucudan bir kullanıcıyı at.",
+        "options": {
+          "user": {
+            "label": "kullanıcı",
+            "description": "Atılacak kullanıcı."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Atma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Atma Başarılı",
+              "description": "{discord_user_mention} başarıyla sunucudan atıldı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Atma Başarılı",
+              "description": "{discord_user_mention} kullanıcısı başarıyla sunucudan atıldı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Atma Başarısız",
+              "description": "{discord_user_mention} kullanıcısı atılırken hata oluştu.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    },
+    "ban": {
+      "command": {
+        "label": "yasakla",
+        "description": "Sunucudan bir kullanıcıyı yasakla.",
+        "options": {
+          "user": {
+            "label": "kullanıcı",
+            "description": "Yasaklanacak kullanıcı."
+          },
+          "duration": {
+            "label": "süre",
+            "description": "Yasak süresi."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Yasaklama sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yasaklama Başarılı",
+              "description": "{discord_user_mention} başarıyla yasaklandı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yasaklama Başarılı",
+              "description": "{discord_user_mention} kullanıcısı başarıyla yasaklandı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Süre",
+                  "value": "{duration}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yasaklama Başarısız",
+              "description": "{discord_user_mention} kullanıcısı yasaklanırken hata oluştu.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    },
+    "unban": {
+      "command": {
+        "label": "unban",
+        "description": "Sunucudan bir kullanıcının yasağını kaldır.",
+        "options": {
+          "user": {
+            "label": "kullanıcı",
+            "description": "Yasağı kaldırılacak kullanıcı."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Yasağın kaldırılma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yasak Kaldırma Başarılı",
+              "description": "{discord_user_mention} kullanıcısının yasağı başarıyla kaldırıldı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yasak Kaldırma Başarılı",
+              "description": "{discord_user_mention} kullanıcısının yasağı başarıyla kaldırıldı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "timeout": {
+      "command": {
+        "label": "sustur",
+        "description": "Sunucudan bir kullanıcıyı sustur.",
+        "options": {
+          "user": {
+            "label": "kullanıcı",
+            "description": "Susturulacak kullanıcı."
+          },
+          "duration": {
+            "label": "süre",
+            "description": "Susturma süresi."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Susturma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Susturma Başarılı",
+              "description": "{discord_user_mention} başarıyla susturuldu.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Susturma Başarılı",
+              "description": "{discord_user_mention} kullanıcısı başarıyla susturuldu.",
+              "color": "YELLOW",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Süre",
+                  "value": "{duration}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "untimeout": {
+      "command": {
+        "label": "sustur_ac",
+        "description": "Sunucudan bir kullanıcının susturmasını kaldır.",
+        "options": {
+          "user": {
+            "label": "kullanıcı",
+            "description": "Susturması kaldırılacak kullanıcı."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Susturmanın kaldırılma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Susturma Kaldırma Başarılı",
+              "description": "{discord_user_mention} kullanıcısının susturması başarıyla kaldırıldı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Susturma Kaldırma Başarılı",
+              "description": "{discord_user_mention} kullanıcısının susturması başarıyla kaldırıldı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "clear": {
+      "command": {
+        "label": "temizle",
+        "description": "Belirtilen sayıda mesajı sil.",
+        "options": {
+          "amount": {
+            "label": "miktar",
+            "description": "Silinecek mesaj sayısı."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Temizleme sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Temizleme Başarılı",
+              "description": "{amount} mesaj başarıyla silindi.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Temizleme Başarılı",
+              "description": "{discord_user_mention} kullanıcısı tarafından {amount} mesaj {channel_mention} kanalından silindi.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Miktar",
+                  "value": "{amount}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "lock": {
+      "command": {
+        "label": "kanal_kilitle",
+        "description": "Belirtilen kanalı kilitle.",
+        "options": {
+          "channel": {
+            "label": "kanal",
+            "description": "Kilitlemek istediğiniz kanal."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Kanalın kilitlenme sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Kilitlenme Başarılı",
+              "description": "{channel_mention} kanalı başarıyla kilitlendi.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Kilitlenme Başarılı",
+              "description": "{discord_user_mention} kullanıcısı tarafından {channel_mention} kanalı kilitlendi.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "unlock": {
+      "command": {
+        "label": "kanal_ac",
+        "description": "Belirtilen kanalı aç.",
+        "options": {
+          "channel": {
+            "label": "kanal",
+            "description": "Açmak istediğiniz kanal."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Kanalın açılma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Açılma Başarılı",
+              "description": "{channel_mention} kanalı başarıyla açıldı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Açılma Başarılı",
+              "description": "{discord_user_mention} kullanıcısı tarafından {channel_mention} kanalı açıldı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "slowmode": {
+      "command": {
+        "label": "yavas_mod",
+        "description": "Belirtilen kanalda yavaş modu ayarla.",
+        "options": {
+          "channel": {
+            "label": "kanal",
+            "description": "Yavaş modun uygulanacağı kanal."
+          },
+          "duration": {
+            "label": "süre",
+            "description": "Yavaş mod süresi (saniye cinsinden)."
+          },
+          "reason": {
+            "label": "sebep",
+            "description": "Yavaş modun uygulanma sebebi."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yavaş Mod Başarılı",
+              "description": "{channel_mention} kanalında yavaş mod {duration} saniye olarak ayarlandı.",
+              "color": "GREEN"
+            }
+          }
+        },
+        "log": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Yavaş Mod Başarılı",
+              "description": "{discord_user_mention} kullanıcısı tarafından {channel_mention} kanalında yavaş mod {duration} saniye olarak ayarlandı.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Süre",
+                  "value": "{duration}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "suggest": {
+      "command": {
+        "label": "öneri",
+        "description": "Öneri gönderin."
+      },
+      "messages": {
+        "minecraft": {
+          "approve": {
+            "text": "Öneriniz {discord_staff_username} tarafından onaylandı."
+          },
+          "reject": {
+            "text": "Öneriniz {discord_staff_username} tarafından reddedildi."
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Gönderildi",
+              "description": "Öneriniz başarıyla gönderildi.",
+              "color": "GREEN"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Gönderme Başarısız",
+              "description": "Önerinizi gönderirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+              "color": "RED"
+            }
+          }
+        },
+        "pending": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Gönderildi",
+              "description": "{discord_user_mention} kullanıcısı öneri gönderdi.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Öneri",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Gönderme Başarısız",
+              "description": "{discord_user_mention} kullanıcısı öneri gönderirken hata oluştu.",
+              "color": "RED"
+            }
+          }
+        },
+        "result": {
+          "approve": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Kabul Edildi",
+              "description": "{discord_user_mention}'ın önerisi kabul edildi.",
+              "color": "GREEN",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Öneri",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          },
+          "reject": {
+            "message_type": "embed",
+            "content": {
+              "title": "Öneri Reddedildi",
+              "description": "{discord_user_mention}'ın önerisi reddedildi.",
+              "color": "RED",
+              "fields": [
+                {
+                  "name": "Yetkili",
+                  "value": "{discord_staff_user_mention}"
+                },
+                {
+                  "name": "Sebep",
+                  "value": "{reason}"
+                },
+                {
+                  "name": "Öneri",
+                  "value": "{suggestion}"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "menu": {
+        "confirmation": {
+          "approve": {
+            "label": "Approve",
+            "emoji": "✅",
+            "style": "SUCCESS"
+          },
+          "reject": {
+            "label": "Reject",
+            "emoji": "❌",
+            "style": "DANGER"
+          }
+        }
+      },
+      "modal": {
+        "send": {
+          "title": "Give a Suggestion",
+          "fields": {
+            "suggestion": {
+              "style": "PARAGRAPH",
+              "label": "Suggestion",
+              "placeholder": "Enter your suggestion here."
+            }
+          }
+        },
+        "respond": {
+          "title": "Respond to Suggestion",
+          "fields": {
+            "response": {
+              "style": "PARAGRAPH",
+              "label": "Response",
+              "placeholder": "Enter your response here."
+            }
+          }
+        }
+      }
+    },
+    "wiki": {
+      "command": {
+        "label": "wiki",
+        "description": "Wiki'de arama yapın.",
+        "options": {
+          "query": {
+            "label": "sorgu",
+            "description": "Aranacak sorgu."
+          }
+        }
+      },
+      "messages": {
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "{query} - Wiki Arama Sonucu",
+              "description": "{result}",
+              "color": "BLUE"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Wiki Bilgisi Alınamadı",
+              "description": "Aradığınız bilgi bulunamadı.",
+              "color": "RED"
+            }
+          }
+        }
+      }
+    }
+  },
+  "systems": {
+    "ticket": {
+      "messages": {
+        "system": {
+          "startup": {
+            "message_type": "embed",
+            "content": {
+              "title": "Destek Sistemi",
+              "description": "Destek sistemi şimdi çevrimiçi. Kategorilerden birini seçerek bilet oluşturabilirsiniz.",
+              "color": "GREEN"
+            }
+          },
+          "creation": {
+            "general": {
+              "message_type": "embed",
+              "content": {
+                "title": "Yeni Bilet Oluşturuldu",
+                "description": "{ticket_owner_discord_user_mention} tarafından yeni bir bilet oluşturuldu.",
+                "color": "BLUE",
+                "fields": [
+                  {
+                    "name": "İçerik",
+                    "value": "{ticket_general_content}"
+                  }
+                ]
+              }
+            },
+            "report": {
+              "message_type": "embed",
+              "content": {
+                "title": "Yeni Rapor Bileti Oluşturuldu",
+                "description": "{ticket_owner_discord_user_mention}, bir rapor bileti oluşturdu.",
+                "color": "RED",
+                "fields": [
+                  {
+                    "name": "Kullanıcı Adı",
+                    "value": "{ticket_report_username}"
+                  },
+                  {
+                    "name": "Rapor İçeriği",
+                    "value": "{ticket_report_content}"
+                  }
+                ]
+              }
+            }
+          },
+          "closing": {
+            "message_type": "embed",
+            "content": {
+              "title": "Bileti kapatmak istediğinize emin misiniz?",
+              "description": "Bilet kapatıldıktan sonra geri alınamaz.",
+              "color": "YELLOW"
+            }
+          }
+        },
+        "user": {
+          "success": {
+            "message_type": "embed",
+            "content": {
+              "title": "Bilet Oluşturuldu",
+              "description": "Biletiniz başarıyla oluşturuldu. Daha fazla bilgi için lütfen özel mesajlarınızı kontrol edin.",
+              "color": "BLUE"
+            }
+          },
+          "failure": {
+            "message_type": "embed",
+            "content": {
+              "title": "Bilet Oluşturulamadı",
+              "description": "Bilet oluşturulurken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+              "color": "RED"
+            }
+          }
+        },
+        "log": {
+          "transcript": {
+            "message_type": "embed",
+            "content": {
+              "title": "Bilet Transkripti",
+              "description": "{ticket_owner_discord_user_mention} kullanıcısının bilet transkripti.",
+              "color": "BLUE",
+              "fields": [
+                {
+                  "name": "Bilet Sahibi",
+                  "value": "{ticket_owner_discord_user_mention}"
+                },
+                {
+                  "name": "Bilet Kategorisi",
+                  "value": "{ticket_category}"
+                },
+                {
+                  "name": "Bilet ID",
+                  "value": "{ticket_channel_id}"
+                },
+                {
+                  "name": "Transkript",
+                  "value": "[Transkripti görmek için tıklayın]({ticket_transcript_url})"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "menu": {
+        "inner": {
+          "close": {
+            "emoji": "🔒",
+            "label": "Bileti Kapat",
+            "style": "DANGER"
+          }
+        },
+        "outer": {
+          "confirm": {
+            "emoji": "✅",
+            "label": "Onayla",
+            "style": "SUCCESS"
+          },
+          "cancel": {
+            "emoji": "❌",
+            "label": "İptal Et",
+            "style": "SECONDARY"
+          }
+        }
+      },
+      "modal": {
+        "general": {
+          "title": "Genel Bilet",
+          "fields": {
+            "content": {
+              "style": "PARAGRAPH",
+              "label": "İçerik",
+              "placeholder": "Biletinizin içeriğini buraya girin."
+            }
+          }
+        },
+        "report": {
+          "title": "Şikayet Bileti",
+          "fields": {
+            "username": {
+              "style": "SHORT",
+              "label": "Kullanıcı Adı",
+              "placeholder": "Şikayet etmek istediğiniz kullanıcının adını girin."
+            },
+            "content": {
+              "style": "PARAGRAPH",
+              "label": "Şikayet İçeriği",
+              "placeholder": "Şikayetinizin içeriğini buraya girin."
+            }
+          }
+        }
+      }
+    }
+  },
+  "general": {
+    "success": {
+      "message_type": "embed",
+      "content": {
+        "title": "Başarılı",
+        "description": "İşlem başarıyla tamamlandı.",
+        "color": "GREEN"
+      }
+    },
+    "failure": {
+      "message_type": "embed",
+      "content": {
+        "title": "Başarısız",
+        "description": "İşlem başarısız oldu. Lütfen daha sonra tekrar deneyin.",
+        "color": "RED"
+      }
+    },
+    "no_reason": {
+      "text": "Sebep belirtilmedi."
+    }
+  },
+  "error": {
+    "unknown_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Bilinmeyen Hata",
+        "description": "Bilinmeyen bir hata oluştu. Lütfen bunu geliştiricilere bildirin.",
+        "color": "RED"
+      }
+    },
+    "timeout_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Zaman Aşımı Hatası",
+        "description": "İşlem zaman aşımına uğradı. Lütfen daha sonra tekrar deneyin.",
+        "color": "RED"
+      }
+    },
+    "command_on_cooldown": {
+      "message_type": "embed",
+      "content": {
+        "title": "Komut Bekleme Süresi",
+        "description": "Bu komutu kullanmak için bekleme süresi dolmadı.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Bekleme Süresi",
+            "value": "{remaining_cooldown}"
+          }
+        ]
+      }
+    },
+    "user_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Kullanıcı Bulunamadı",
+        "description": "Belirtilen kullanıcı bulunamadı.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Kullanıcı ID",
+            "value": "{discord_user_id}"
+          },
+          {
+            "name": "Kullanıcı Adı",
+            "value": "{discord_username}"
+          }
+        ]
+      }
+    },
+    "member_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Üye Bulunamadı",
+        "description": "Belirtilen üye bulunamadı.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Kullanıcı ID",
+            "value": "{discord_user_id}"
+          },
+          {
+            "name": "Kullanıcı Adı",
+            "value": "{discord_username}"
+          }
+        ]
+      }
+    },
+    "channel_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Kanal Bulunamadı",
+        "description": "Belirtilen kanal bulunamadı.",
+        "color": "RED"
+      }
+    },
+    "command_execution_error": {
+      "message_type": "embed",
+      "content": {
+        "title": "Komut Çalıştırma Hatası",
+        "description": "Komut çalıştırılırken bir hata oluştu.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Hata",
+            "value": "{error_message}"
+          }
+        ]
+      }
+    },
+    "user_record_not_found": {
+      "message_type": "embed",
+      "content": {
+        "title": "Kullanıcı Kaydı Bulunamadı",
+        "description": "Kullanıcı kaydı bulunamadı.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Kullanıcı Adı",
+            "value": "{discord_username}"
+          },
+          {
+            "name": "Kullanıcı ID",
+            "value": "{discord_user_id}"
+          }
+        ]
+      }
+    },
+    "account_already_linked": {
+      "message_type": "embed",
+      "content": {
+        "title": "Hesap Zaten Bağlı",
+        "description": "Hesap zaten bağlanmış durumda.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Oyuncu Adı",
+            "value": "{minecraft_username}"
+          },
+          {
+            "name": "Oyuncu UUID",
+            "value": "{minecraft_uuid}"
+          }
+        ]
+      }
+    },
+    "account_not_linked": {
+      "message_type": "embed",
+      "content": {
+        "title": "Hesap Bağlı Değil",
+        "description": "Hesap bağlı değil.",
+        "color": "RED"
+      }
+    },
+    "player_not_online": {
+      "message_type": "embed",
+      "content": {
+        "title": "Oyuncu Çevrimiçi Değil",
+        "description": "Minecraft oyuncusu çevrimiçi değil.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Oyuncu Adı",
+            "value": "{minecraft_username}"
+          },
+          {
+            "name": "Oyuncu UUID",
+            "value": "{minecraft_uuid}"
+          }
+        ]
+      }
+    },
+    "can_not_moderate": {
+      "message_type": "embed",
+      "content": {
+        "title": "Yeterli Yetki Yok",
+        "description": "Bu kullanıcıyı moderasyon işlemi yapamazsınız.",
+        "color": "RED",
+        "fields": [
+          {
+            "name": "Kullanıcı Adı",
+            "value": "{discord_username}"
+          },
+          {
+            "name": "Kullanıcı ID",
+            "value": "{discord_user_id}"
+          }
+        ]
+      }
+    },
+    "user_already_timed_out": {
+      "message_type": "embed",
+      "content": {
+        "title": "Zaten Susturulmuş",
+        "description": "{discord_user_mention} zaten susturulmuş.",
+        "color": "RED"
+      }
+    },
+    "user_not_timed_out": {
+      "message_type": "embed",
+      "content": {
+        "title": "Susturma Bulunamadı",
+        "description": "{discord_user_mention} kullanıcısı için susturma bulunamadı.",
+        "color": "RED"
+      }
+    },
+    "duration_out_of_range": {
+      "message_type": "embed",
+      "content": {
+        "title": "Süre Aralığı Dışında",
+        "description": "Belirtilen süre aralığı dışında. Lütfen geçerli bir süre girin.",
+        "fields": [
+          {
+            "name": "Minimum Süre",
+            "value": "{min_duration}"
+          },
+          {
+            "name": "Maksimum Süre",
+            "value": "{max_duration}"
+          }
+        ],
+        "color": "RED"
+      }
+    },
+    "max_amount_of_tickets_reached": {
+      "message_type": "embed",
+      "content": {
+        "title": "Maksimum Bilet Sayısına Ulaşıldı",
+        "description": "Maksimum bilet sayısı olan {max_tickets} bilet sayısına ulaşıldı. Lütfen başka bir bilet oluşturmadan önce mevcut biletinizi kapatın.",
+        "color": "RED"
+      }
+    }
+  },
+  "time_units": {
+    "year": {
+      "singular": ["yıl", "sene", "yl", "y"],
+      "plural": ["yıllar", "seneler", "yl", "y"]
+    },
+    "month": {
+      "singular": ["ay"],
+      "plural": ["aylar"]
+    },
+    "week": {
+      "singular": ["hafta", "hft"],
+      "plural": ["haftalar", "hft"]
+    },
+    "day": {
+      "singular": ["gün", "g"],
+      "plural": ["günler", "g"]
+    },
+    "hour": {
+      "singular": ["saat", "sa"],
+      "plural": ["saatler", "sa"]
+    },
+    "minute": {
+      "singular": ["dakika", "dk"],
+      "plural": ["dakikalar", "dk"]
+    },
+    "second": {
+      "singular": ["saniye", "sn"],
+      "plural": ["saniyeler", "sn"]
+    }
+  }
+}

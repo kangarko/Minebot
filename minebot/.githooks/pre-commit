@@ -1,0 +1,101 @@
+#!/bin/bash
+
+set -e  # Exit immediately if any command fails
+
+CONFIG_FILE="configuration/settings.json"
+BACKUP_FILE="configuration/.settings.backup.json"
+TEMP_ERROR_LOG=$(mktemp)
+
+echo "🔒 Running pre-commit hook to sanitize configuration..."
+
+# Check if config file exists
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "❌ Error: $CONFIG_FILE not found."
+    exit 1
+fi
+
+# Create backup with error handling
+if ! cp "$CONFIG_FILE" "$BACKUP_FILE"; then
+    echo "❌ Failed to create backup of configuration file."
+    exit 1
+fi
+
+# Export variables for Python
+export CONFIG_FILE BACKUP_FILE
+
+# Process the config file
+python3 - <<EOF
+import json
+import os
+import sys
+
+CONFIG_FILE = os.environ.get("CONFIG_FILE", "configuration/settings.json")
+BACKUP_FILE = os.environ.get("BACKUP_FILE", "configuration/.settings.backup.json")
+
+try:
+    # Read the configuration file
+    with open(CONFIG_FILE, "r") as f:
+        data = json.load(f)
+
+    def empty_value(value):
+        """Convert any value to its empty equivalent while preserving type structure"""
+        if isinstance(value, str):
+            return ""
+        elif isinstance(value, (int, float)):
+            return None
+        elif isinstance(value, bool):
+            return False
+        elif isinstance(value, dict):
+            return {k: empty_value(v) for k, v in value.items()}
+        elif isinstance(value, list):
+            # Preserve empty lists or lists of objects with structure
+            if not value:
+                return []
+            # If list contains dictionaries, preserve their structure
+            if any(isinstance(item, dict) for item in value):
+                if len(value) > 0 and isinstance(value[0], dict):
+                    # Take first item as template and empty it
+                    return [clear_all_values(value[0])]
+                return []
+            return []
+        else:
+            return None
+
+    # Clear all values while preserving structure
+    def clear_all_values(obj):
+        """Recursively clear values in an object while preserving structure"""
+        if isinstance(obj, dict):
+            return {k: empty_value(v) for k, v in obj.items()}
+        return empty_value(obj)
+
+    # Replace data with sanitized version
+    data = clear_all_values(data)
+
+    # Write sanitized data back to file
+    with open(CONFIG_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+        
+    print(f"✅ Successfully sanitized {CONFIG_FILE} - all values cleared")
+    
+except Exception as e:
+    print(f"❌ Error processing config file: {e}", file=sys.stderr)
+    # Exit with error status so outer script can handle restoration
+    sys.exit(1)
+EOF
+
+# Check if Python script succeeded
+if [ $? -ne 0 ]; then
+    echo "❌ Failed to sanitize configuration file. Restoring from backup."
+    if [ -f "$BACKUP_FILE" ]; then
+        mv "$BACKUP_FILE" "$CONFIG_FILE"
+        echo "✅ Configuration restored from backup."
+    else
+        echo "❌ Backup file not found. Configuration may be corrupted."
+    fi
+    exit 1
+fi
+
+# Add the sanitized config file to git
+git add "$CONFIG_FILE"
+
+echo "✅ Pre-commit hook completed successfully"

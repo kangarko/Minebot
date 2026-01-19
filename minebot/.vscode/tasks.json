@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Development",
+      "command": "conda activate hikari && python -OO src/__main__.py",
+      "type": "shell",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Count Lines",
+      "command": "clear && find -type f -name '*.py' -o -name '*.json' | grep -v '.venv/' | xargs wc -l | tail -1",
+      "type": "shell",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}

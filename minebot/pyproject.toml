@@ -1,0 +1,21 @@
+[project]
+name = "minebot"
+version = "1.1.1"
+description = "A modern, all-in-one Discord bot with a Minecraft connector and a ton of useful features."
+requires-python = ">=3.10"
+dependencies = [
+    "aiomysql==0.3.2",
+    "aiosqlite==0.22.1",
+    "asyncpg==0.31.0",
+    "hikari-lightbulb==3.2.3",
+    "hikari-toolbox==0.1.7",
+    "hikari[speedups]==2.5.0",
+    "pydantic==2.12.5",
+    "pydantic-extra-types==2.11.0",
+    "sqlalchemy==2.0.45",
+    "websockets==16.0",
+    "uvloop==0.22.1; sys_platform != 'win32'",
+    "cryptography>=45.0.3",
+    "hikari-chat-exporter>=0.0.3",
+    "pygithub>=2.6.1",
+]

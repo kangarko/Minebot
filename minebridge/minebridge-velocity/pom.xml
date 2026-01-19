@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Configuration -->
+    <parent>
+        <groupId>org.mineacademy</groupId>
+        <artifactId>minebridge-parent</artifactId>
+        <version>1.1.1</version>
+    </parent>
+
+    <artifactId>minebridge-velocity</artifactId>
+    <name>MineBridge-Velocity</name>
+    
+    <properties>
+        <main.class>org.mineacademy.minebridge.velocity.MineBridgeVelocity</main.class>
+    </properties>
+
+    <dependencies>
+        <!-- Velocity API -->
+        <dependency>
+            <groupId>com.velocitypowered</groupId>
+            <artifactId>velocity-api</artifactId>
+        </dependency>
+
+        <!-- MineBridge Proxy Core -->
+        <dependency>
+            <groupId>org.mineacademy</groupId>
+            <artifactId>minebridge-proxy-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Foundation Velocity -->
+        <dependency>
+            <groupId>org.mineacademy</groupId>
+            <artifactId>foundation-velocity</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Java-WebSocket -->
+        <dependency>
+            <groupId>org.java-websocket</groupId>
+            <artifactId>Java-WebSocket</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.name}-${project.version}</finalName>
+        <plugins>
+            <!-- Jar Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            
+            <!-- Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            
+            <!-- Shade Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    
+                    <!-- Include dependencies -->
+                    <artifactSet>
+                        <includes>
+                            <include>org.mineacademy:foundation-velocity*</include>
+                            <include>org.mineacademy:minebridge-core*</include>
+                            <include>org.mineacademy:minebridge-proxy-core*</include>
+                            <include>org.java-websocket:Java-WebSocket</include>
+                        </includes>
+                    </artifactSet>
+                    
+                    <!-- Relocations -->
+                    <relocations>
+                        <relocation>
+                            <pattern>org.mineacademy.fo</pattern>
+                            <shadedPattern>org.mineacademy.minebridge.lib.foundation</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.java_websocket</pattern>
+                            <shadedPattern>org.mineacademy.minebridge.lib.websocket</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+            </plugin>
+        </plugins>
+        
+        <!-- Resources -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
