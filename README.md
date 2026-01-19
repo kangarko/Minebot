@@ -4,9 +4,9 @@
 
 ## 🤖 Minebot - All-In-In Discord-Minecraft Bot
 
-Minebot is the all-in-one Discord bot that seamlessly integrates with your Minecraft server. It combines multiple functionalities that would otherwise require several different plugins and bots, providing a streamlined experience for server owners, staff, and players.
+> **Sunset notice:** As of Jan 18, 2026, we will discontinue support for Minebot due to low customer interest in the product. We've decided to fully open source the bot and its Minecraft plugin part to allow existing customers easier migration.
 
-> **Note:** This GitHub repository is for technical support only. For feature requests, bug reports, and other support issues, please use the Issues tab.
+Minebot is the all-in-one Discord bot that seamlessly integrates with your Minecraft server. It combines multiple functionalities that would otherwise require several different plugins and bots, providing a streamlined experience for server owners, staff, and players.
 
 ## ✨ Features
 
